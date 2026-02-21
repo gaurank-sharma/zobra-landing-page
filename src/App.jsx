@@ -381,8 +381,6 @@
 // export default App;
 
 
-
-
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   Phone, 
@@ -614,7 +612,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* ================= EXPERT FACULTY SECTION (NEW) ================= */}
+      {/* ================= EXPERT FACULTY SECTION (UPDATED) ================= */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
@@ -625,21 +623,22 @@ const App = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            {/* Teacher 1 */}
+            {/* Teacher 1: Mr. Rudra Tamang */}
             <div className="bg-white rounded-2xl shadow-lg border border-green-50 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
               <div className="w-full aspect-[3/4] overflow-hidden bg-green-100">
                 <img 
-                  src="/teacher1.jpeg" 
-                  alt="Voice & Accent Trainer" 
+                  src="/teacher-1.jpg" 
+                  alt="Mr. Rudra Tamang" 
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-bold text-green-900 mb-1">Communication Coach</h3>
+                <h3 className="text-xl font-bold text-green-900 mb-1">Mr. Rudra Tamang</h3>
                 <span className="text-orange-500 font-semibold text-sm block mb-4">Voice & Accent Training</span>
                 <ul className="space-y-2 text-gray-600 text-sm flex-grow">
                   <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> 10+ Years of Overall Professional Experience</li>
                   <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> Experience Working with Multinational Companies</li>
+                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> Specialized in Voice & Accent Training</li>
                   <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> 1-on-1 Spoken English Coaching (Global Clients)</li>
                   <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> Accent Neutralization & Fluency Development</li>
                   <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> Confidence Building & Public Speaking Support</li>
@@ -648,33 +647,32 @@ const App = () => {
               </div>
             </div>
 
-            {/* Teacher 2 */}
+            {/* Teacher 2: Dr. Pritpal Singh */}
             <div className="bg-white rounded-2xl shadow-lg border border-green-50 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
               <div className="w-full aspect-[3/4] overflow-hidden bg-green-100">
                 <img 
-                  src="/teacher2.jpeg" 
-                  alt="Civil Services Expert" 
+                  src="/teacher-2.jpg" 
+                  alt="Dr. Pritpal Singh" 
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-bold text-green-900 mb-1">Civil Services Mentor</h3>
-                <span className="text-orange-500 font-semibold text-sm block mb-4">General Studies & Current Development</span>
+                <h3 className="text-xl font-bold text-green-900 mb-1">Dr. Pritpal Singh</h3>
+                <span className="text-orange-500 font-semibold text-sm block mb-4">Academic Head</span>
                 <ul className="space-y-2 text-gray-600 text-sm flex-grow">
-                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> 12 years of teaching experience</li>
-                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> Expert in General Studies and Current Affairs</li>
-                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> Appeared for 4 UPSC Interviews</li>
-                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> Appeared for 4 Punjab Civil Service Interviews</li>
-                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> Successfully selected candidate</li>
+                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> MBBS Qualified</li>
+                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> Has been selected for Punjab Civil Services</li>
+                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> 4 Times appeared for the UPSC final interview</li>
+                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> 4 Times appeared for the Punjab Civil Services and selected for the same</li>
                 </ul>
               </div>
             </div>
 
-            {/* Teacher 3 */}
+            {/* Teacher 3: Nilupawan Bharali */}
             <div className="bg-white rounded-2xl shadow-lg border border-green-50 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
               <div className="w-full aspect-[3/4] overflow-hidden bg-green-100">
                 <img 
-                  src="/teacher3.jpeg" 
+                  src="/teacher-3.jpg" 
                   alt="Nilupawan Bharali" 
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />
@@ -687,6 +685,47 @@ const App = () => {
                   <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> Educational Qualification: MSc, Chemistry</li>
                   <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> Ex-Chemistry Faculty at Ajmal Super 40</li>
                   <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> Dedicated coaching for competitive exams</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Teacher 4: Mr. Himujjwal Bhattacharya */}
+            <div className="bg-white rounded-2xl shadow-lg border border-green-50 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+              <div className="w-full aspect-[3/4] overflow-hidden bg-green-100">
+                <img 
+                  src="/teacher-4.jpg" 
+                  alt="Mr. Himujjwal Bhattacharya" 
+                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6 flex-grow flex flex-col">
+                <h3 className="text-xl font-bold text-green-900 mb-1">Mr. Himujjwal Bhattacharya</h3>
+                <span className="text-orange-500 font-semibold text-sm block mb-4">Faculty for Maths and Physics</span>
+                <ul className="space-y-2 text-gray-600 text-sm flex-grow">
+                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> 3+ Years experience in coaching and mentoring</li>
+                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> B.Tech - Mechanical Engineering</li>
+                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> MBA - IT & HR</li>
+                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> Cleared UGC NET Dec 2025 HR</li>
+                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> Cleared NEE-1 2018</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Teacher 5: Ms. Yashikala Yaden */}
+            <div className="bg-white rounded-2xl shadow-lg border border-green-50 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+              <div className="w-full aspect-[3/4] overflow-hidden bg-green-100">
+                <img 
+                  src="/teacher-5.jpg" 
+                  alt="Ms. Yashikala Yaden" 
+                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6 flex-grow flex flex-col">
+                <h3 className="text-xl font-bold text-green-900 mb-1">Ms. Yashikala Yaden</h3>
+                <span className="text-orange-500 font-semibold text-sm block mb-4">Engineering Faculty</span>
+                <ul className="space-y-2 text-gray-600 text-sm flex-grow">
+                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> BTECH Electronics & Communication</li>
+                  <li className="flex items-start gap-2"><CheckCircle size={16} className="text-green-600 mt-0.5 shrink-0" /> 5+ years of Coaching and Mentorship experience</li>
                 </ul>
               </div>
             </div>

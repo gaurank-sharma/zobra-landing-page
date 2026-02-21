@@ -627,7 +627,7 @@ const App = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-green-50 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
               <div className="w-full aspect-[3/4] overflow-hidden bg-green-100">
                 <img 
-                  src="/teacher-1.jpg" 
+                  src="/teacher-1.jpeg" 
                   alt="Mr. Rudra Tamang" 
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />
@@ -651,7 +651,7 @@ const App = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-green-50 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
               <div className="w-full aspect-[3/4] overflow-hidden bg-green-100">
                 <img 
-                  src="/teacher-2.jpg" 
+                  src="/teacher-2.jpeg" 
                   alt="Dr. Pritpal Singh" 
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />
@@ -672,7 +672,7 @@ const App = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-green-50 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
               <div className="w-full aspect-[3/4] overflow-hidden bg-green-100">
                 <img 
-                  src="/teacher-3.jpg" 
+                  src="/teacher-3.jpeg" 
                   alt="Nilupawan Bharali" 
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />
@@ -693,7 +693,7 @@ const App = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-green-50 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
               <div className="w-full aspect-[3/4] overflow-hidden bg-green-100">
                 <img 
-                  src="/teacher-4.jpg" 
+                  src="/teacher-4.jpeg" 
                   alt="Mr. Himujjwal Bhattacharya" 
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />
@@ -715,7 +715,7 @@ const App = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-green-50 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
               <div className="w-full aspect-[3/4] overflow-hidden bg-green-100">
                 <img 
-                  src="/teacher-5.jpg" 
+                  src="/teacher-5.jpeg" 
                   alt="Ms. Yashikala Yaden" 
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />

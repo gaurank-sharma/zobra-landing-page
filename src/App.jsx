@@ -629,7 +629,7 @@ const App = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-green-50 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
               <div className="w-full aspect-[3/4] overflow-hidden bg-green-100">
                 <img 
-                  src="/teacher-1.jpg" 
+                  src="/teacher1.jpg" 
                   alt="Voice & Accent Trainer" 
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />
@@ -652,7 +652,7 @@ const App = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-green-50 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
               <div className="w-full aspect-[3/4] overflow-hidden bg-green-100">
                 <img 
-                  src="/teacher-2.jpg" 
+                  src="/teacher2.jpg" 
                   alt="Civil Services Expert" 
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />
@@ -674,7 +674,7 @@ const App = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-green-50 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
               <div className="w-full aspect-[3/4] overflow-hidden bg-green-100">
                 <img 
-                  src="/teacher-3.jpg" 
+                  src="/teacher3.jpg" 
                   alt="Nilupawan Bharali" 
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />

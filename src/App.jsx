@@ -610,13 +610,10 @@ const App = () => {
     setIsSubmitting(true);
     setSubmitMessage('');
 
-    // const SERVICE_ID = 'service_mbgyfph';
-    // const TEMPLATE_ID = 'template_oevh0wb';
-    // const PUBLIC_KEY = 'VR5cHtANAAx2Z-9Vx';
+    const SERVICE_ID = 'service_mbgyfph';
+    const TEMPLATE_ID = 'template_oevh0wb';
+    const PUBLIC_KEY = 'VR5cHtANAAx2Z-9Vx';
 
-    const SERVICE_ID = 'service_pa03lr9';
-    const TEMPLATE_ID = 'template_b0cqa2f';
-    const PUBLIC_KEY = '83lYRLqDCeSLDPCle';
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       .then((result) => {

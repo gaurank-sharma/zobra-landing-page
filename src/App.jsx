@@ -615,9 +615,9 @@ const App = () => {
     setSubmitMessage('');
 
     // TODO: Replace these with your actual EmailJS credentials
-    const SERVICE_ID = 'YOUR_SERVICE_ID';
-    const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-    const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+    const SERVICE_ID = 'service_mbgyfph';
+    const TEMPLATE_ID = 'template_oevh0wb';
+    const PUBLIC_KEY = 'VR5cHtANAAx2Z-9Vx';
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       .then((result) => {

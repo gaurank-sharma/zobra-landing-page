@@ -1,6 +1,6 @@
 
-
 // import React, { useState, useRef, useEffect } from 'react';
+// import emailjs from '@emailjs/browser';
 // import { 
 //   Phone, 
 //   MessageCircle, 
@@ -21,7 +21,19 @@
 // const App = () => {
 //   const [isMenuOpen, setIsMenuOpen] = useState(false);
 //   const [currentSlide, setCurrentSlide] = useState(0);
+//   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   
+//   // EmailJS States
+//   const formRef = useRef(null);
+//   const [isSubmitting, setIsSubmitting] = useState(false);
+//   const [submitMessage, setSubmitMessage] = useState('');
+  
+//   // Contact Info
+//   const WHATSAPP_NUMBER = "917838636253";
+//   const WHATSAPP_TEXT = encodeURIComponent("Hello ZORBA Genius Academy! I am interested in your courses and would like to know more.");
+//   const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_TEXT}`;
+//   const PHONE_URL = `tel:+917838636253`;
+
 //   // Array of relative images for the Hero Slider
 //   const heroImages = [
 //     '/hero-bg-1.jpg',
@@ -44,11 +56,34 @@
 //     setIsMenuOpen(false);
 //   };
 
+//   // EmailJS Submit Handler
+//   const sendEmail = (e) => {
+//     e.preventDefault();
+//     setIsSubmitting(true);
+//     setSubmitMessage('');
+
+//     const SERVICE_ID = 'service_mbgyfph';
+//     const TEMPLATE_ID = 'template_oevh0wb';
+//     const PUBLIC_KEY = 'VR5cHtANAAx2Z-9Vx';
+
+
+//     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+//       .then((result) => {
+//           setSubmitMessage('Enquiry sent successfully! We will contact you soon.');
+//           formRef.current.reset();
+//           setIsSubmitting(false);
+//       }, (error) => {
+//           setSubmitMessage('Failed to send enquiry. Please try contacting us via WhatsApp.');
+//           setIsSubmitting(false);
+//           console.error(error.text);
+//       });
+//   };
+
 //   return (
 //     <div className="font-sans text-gray-800 antialiased overflow-x-hidden">
       
 //       {/* ================= HEADER / NAVBAR ================= */}
-//       <nav className="bg-white shadow-md fixed w-full z-50">
+//       <nav className="bg-white shadow-md fixed w-full z-40">
 //         <div className="container mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
 //           <div className="flex items-center gap-3">
 //             <img 
@@ -88,7 +123,6 @@
 
 //       {/* ================= HERO SECTION (WITH SLIDER) ================= */}
 //       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-green-900 text-white overflow-hidden">
-//         {/* Slider Backgrounds */}
 //         {heroImages.map((img, index) => (
 //           <div 
 //             key={index}
@@ -103,13 +137,11 @@
 //             />
 //           </div>
 //         ))}
-//         {/* Gradient Overlay for better text readability */}
 //         <div className="absolute inset-0 bg-gradient-to-r from-green-950/90 to-green-900/50 z-0"></div>
 
 //         <div className="container mx-auto px-4 md:px-8 relative z-10 grid md:grid-cols-2 gap-12 items-center">
 //           <div className="space-y-6 animate-fade-in-up">
             
-//             {/* New Banner Tags */}
 //             <div className="inline-block bg-orange-500 text-white font-bold tracking-wider text-xs md:text-sm uppercase py-1.5 px-3 rounded shadow-md mb-2">
 //               ACADEMIC TUITIONS: All Classes | All Subjects | One Destination
 //             </div>
@@ -129,15 +161,22 @@
 //               >
 //                 Enquire Now
 //               </button>
-//               <button className="border-2 border-green-400 hover:bg-green-400/20 text-white px-6 py-3.5 rounded font-semibold transition-all flex items-center justify-center gap-2">
+//               <a 
+//                 href={WHATSAPP_URL}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 className="border-2 border-green-400 hover:bg-green-400/20 text-white px-6 py-3.5 rounded font-semibold transition-all flex items-center justify-center gap-2"
+//               >
 //                 <MessageCircle size={20} /> WhatsApp Us
-//               </button>
-//               <button className="border-2 border-green-400 hover:bg-green-400/20 text-white px-6 py-3.5 rounded font-semibold transition-all flex items-center justify-center gap-2">
+//               </a>
+//               <a 
+//                 href={PHONE_URL}
+//                 className="border-2 border-green-400 hover:bg-green-400/20 text-white px-6 py-3.5 rounded font-semibold transition-all flex items-center justify-center gap-2"
+//               >
 //                 <Phone size={20} /> Call Now
-//               </button>
+//               </a>
 //             </div>
             
-//             {/* Slider Dots */}
 //             <div className="flex gap-2 pt-8">
 //               {heroImages.map((_, index) => (
 //                 <button 
@@ -231,7 +270,7 @@
 //         </div>
 //       </section>
 
-//       {/* ================= EXPERT FACULTY SECTION (UPDATED) ================= */}
+//       {/* ================= EXPERT FACULTY SECTION ================= */}
 //       <section className="py-20 bg-white">
 //         <div className="container mx-auto px-4 md:px-8">
 //           <div className="text-center mb-16">
@@ -476,35 +515,80 @@
 //           </h2>
 //           <p className="text-gray-500 mb-10">Fill the form below and our team will reach out to you.</p>
 
-//           <form className="space-y-4 text-left">
-//             <input type="text" placeholder="Student Name" className="w-full px-4 py-3 rounded border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-colors" />
-//             <input type="text" placeholder="Parent Name" className="w-full px-4 py-3 rounded border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-colors" />
+//           <form ref={formRef} onSubmit={sendEmail} className="space-y-4 text-left">
+//             <input 
+//               type="text" 
+//               name="student_name"
+//               required
+//               placeholder="Student Name" 
+//               className="w-full px-4 py-3 rounded border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-colors" 
+//             />
+//             <input 
+//               type="text" 
+//               name="parent_name"
+//               required
+//               placeholder="Parent Name" 
+//               className="w-full px-4 py-3 rounded border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-colors" 
+//             />
             
 //             <div className="relative">
-//               <select className="w-full px-4 py-3 rounded border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none appearance-none bg-white text-gray-600">
-//                 <option>Select Class</option>
-//                 <option>Class 5-8</option>
-//                 <option>Class 9-10</option>
-//                 <option>Class 11-12 (Arts)</option>
-//                 <option>Class 11-12 (Commerce)</option>
-//                 <option>Class 11-12 (Science)</option>
+//               <select 
+//                 name="class_selection"
+//                 required
+//                 className="w-full px-4 py-3 rounded border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none appearance-none bg-white text-gray-600"
+//               >
+//                 <option value="">Select Class</option>
+//                 <option value="Class 5-8">Class 5-8</option>
+//                 <option value="Class 9-10">Class 9-10</option>
+//                 <option value="Class 11-12 (Arts)">Class 11-12 (Arts)</option>
+//                 <option value="Class 11-12 (Commerce)">Class 11-12 (Commerce)</option>
+//                 <option value="Class 11-12 (Science)">Class 11-12 (Science)</option>
 //               </select>
 //               <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
 //                 <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
 //               </div>
 //             </div>
 
-//             <input type="tel" placeholder="Phone Number" className="w-full px-4 py-3 rounded border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-colors" />
+//             <input 
+//               type="tel" 
+//               name="phone_number"
+//               required
+//               maxLength="10"
+//               pattern="[0-9]{10}"
+//               title="Please enter exactly 10 digits without country code"
+//               placeholder="Phone Number (10 digits)" 
+//               className="w-full px-4 py-3 rounded border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-colors" 
+//             />
             
-//             <textarea placeholder="Message (optional)" rows="4" className="w-full px-4 py-3 rounded border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-colors resize-none"></textarea>
+//             <textarea 
+//               name="message"
+//               placeholder="Message (optional)" 
+//               rows="4" 
+//               className="w-full px-4 py-3 rounded border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-colors resize-none"
+//             ></textarea>
 
-//             <button type="button" className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3.5 rounded font-bold shadow-lg transition-all mt-4">
-//               Submit Enquiry
+//             {submitMessage && (
+//               <p className={`text-center font-medium ${submitMessage.includes('Failed') ? 'text-red-500' : 'text-green-600'}`}>
+//                 {submitMessage}
+//               </p>
+//             )}
+
+//             <button 
+//               type="submit" 
+//               disabled={isSubmitting}
+//               className={`w-full text-white py-3.5 rounded font-bold shadow-lg transition-all mt-4 ${isSubmitting ? 'bg-orange-400 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600'}`}
+//             >
+//               {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
 //             </button>
             
-//             <button type="button" className="w-full border-2 border-green-800 text-green-900 hover:bg-green-50 py-3.5 rounded font-bold transition-all mt-2 flex items-center justify-center gap-2">
+//             <a 
+//               href={WHATSAPP_URL}
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               className="w-full border-2 border-green-800 text-green-900 hover:bg-green-50 py-3.5 rounded font-bold transition-all mt-2 flex items-center justify-center gap-2"
+//             >
 //               <MessageCircle size={20} /> Chat on WhatsApp
-//             </button>
+//             </a>
 //           </form>
 //         </div>
 //       </section>
@@ -530,19 +614,69 @@
 //         <div className="container mx-auto px-4 text-center">
 //           <h4 className="text-white font-serif font-bold text-lg mb-2">ZORBA Genius Academy</h4>
 //           <p className="text-green-300 text-sm mb-6">Shaping Excellence. Building Leaders.</p>
-//           <p className="text-green-600 text-xs">© 2026 ZORBA Genius Academy. All rights reserved.</p>
+//           <p className="text-green-600 text-xs mb-2">© 2026 ZORBA Genius Academy. All rights reserved.</p>
+//           <button 
+//             onClick={() => setIsPrivacyOpen(true)}
+//             className="text-orange-400 hover:text-orange-300 text-xs underline transition-colors"
+//           >
+//             Privacy Policy
+//           </button>
 //         </div>
 //       </footer>
+
+//       {/* ================= PRIVACY POLICY MODAL ================= */}
+//       {isPrivacyOpen && (
+//         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+//           <div className="bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[80vh] overflow-y-auto relative animate-fade-in-up">
+//             <button 
+//               onClick={() => setIsPrivacyOpen(false)}
+//               className="absolute top-4 right-4 text-gray-500 hover:text-red-500 bg-gray-100 rounded-full p-2 transition-colors"
+//             >
+//               <X size={24} />
+//             </button>
+//             <div className="p-8">
+//               <h2 className="text-2xl font-serif font-bold text-green-900 mb-6 border-b pb-4">Privacy Policy</h2>
+              
+//               <div className="space-y-4 text-sm text-gray-600">
+//                 <p><strong>Effective Date:</strong> February 2026</p>
+//                 <p>At ZORBA Genius Academy, we respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy outlines how we collect, use, and safeguard your data.</p>
+                
+//                 <h3 className="font-bold text-gray-800 text-base mt-4">1. Information We Collect</h3>
+//                 <p>When you submit an enquiry through our website, we may collect the following information: Student Name, Parent/Guardian Name, Phone Number, Class/Grade preference, and any messages you send us.</p>
+                
+//                 <h3 className="font-bold text-gray-800 text-base mt-4">2. How We Use Your Information</h3>
+//                 <p>The information collected is strictly used to:</p>
+//                 <ul className="list-disc pl-5 space-y-1">
+//                   <li>Respond to your admission queries and requests.</li>
+//                   <li>Provide details about our courses, tuition batches, and events.</li>
+//                   <li>Contact you via phone or WhatsApp for counseling and enrollment purposes.</li>
+//                 </ul>
+
+//                 <h3 className="font-bold text-gray-800 text-base mt-4">3. Data Security</h3>
+//                 <p>We implement strict security measures to ensure your data is kept confidential. We do not sell, rent, or trade your personal information to third parties.</p>
+
+//                 <h3 className="font-bold text-gray-800 text-base mt-4">4. Contact Us</h3>
+//                 <p>If you have any questions regarding this privacy policy, please contact us at:</p>
+//                 <p><strong>Phone / WhatsApp:</strong> +91 7838636253</p>
+//               </div>
+
+//               <div className="mt-8 text-center">
+//                 <button 
+//                   onClick={() => setIsPrivacyOpen(false)}
+//                   className="bg-green-800 hover:bg-green-900 text-white px-8 py-2.5 rounded font-semibold transition-colors"
+//                 >
+//                   Close
+//                 </button>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       )}
 //     </div>
 //   );
 // };
 
 // export default App;
-
-
-
-
-
 
 
 
@@ -613,7 +747,6 @@ const App = () => {
     const SERVICE_ID = 'service_mbgyfph';
     const TEMPLATE_ID = 'template_oevh0wb';
     const PUBLIC_KEY = 'VR5cHtANAAx2Z-9Vx';
-
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       .then((result) => {
@@ -1081,11 +1214,15 @@ const App = () => {
             
             <div className="relative">
               <select 
-                name="class_selection"
+                name="enquiry_regarding"
                 required
                 className="w-full px-4 py-3 rounded border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none appearance-none bg-white text-gray-600"
               >
-                <option value="">Select Class</option>
+                <option value="">Enquiring Regarding...</option>
+                <option value="NEE-1">NEE-1</option>
+                <option value="Spoken English & Personality">Spoken English & Personality</option>
+                <option value="Academic Tuitions">Academic Tuitions</option>
+                <option value="APSSB">APSSB</option>
                 <option value="Class 5-8">Class 5-8</option>
                 <option value="Class 9-10">Class 9-10</option>
                 <option value="Class 11-12 (Arts)">Class 11-12 (Arts)</option>

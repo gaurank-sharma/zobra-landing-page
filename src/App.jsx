@@ -956,6 +956,17 @@ const App = () => {
         </div>
       </section>
 
+      {/* ================= BANNER ================= */}
+      <section className="w-full">
+        <img
+          src="/z_banner.png"
+          alt="ZORBA Genius Academy"
+          className="w-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </section>
+
       {/* ================= EXPERT FACULTY SECTION ================= */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8">

@@ -716,20 +716,13 @@ const App = () => {
   const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_TEXT}`;
   const PHONE_URL = `tel:+917838636253`;
 
-  // Array of relative images for the Hero Slider
-  const heroImages = [
-    '/hero-bg-1.jpg',
-    '/hero-bg-2.jpg',
-    '/hero-bg-3.jpg'
-  ];
-
-  // Auto-advance slider every 5 seconds
+  // Auto-advance slider every 5 seconds (2 slides)
   useEffect(() => {
     const slideInterval = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % heroImages.length);
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % 2);
     }, 5000);
     return () => clearInterval(slideInterval);
-  }, [heroImages.length]);
+  }, []);
   
   const formSectionRef = useRef(null);
 
@@ -805,75 +798,73 @@ const App = () => {
         )}
       </nav>
 
-      {/* ================= HERO SECTION (WITH SLIDER) ================= */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-green-900 text-white overflow-hidden">
-        {heroImages.map((img, index) => (
-          <div 
-            key={index}
-            className={`absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <img
-              src={img}
-              alt={`ZORBA Hero ${index + 1}`}
-              className="w-full h-full object-cover opacity-40 mix-blend-overlay"
-              decoding="async"
-              fetchPriority={index === 0 ? 'high' : 'low'}
+      {/* ================= HERO SLIDER (2 slides) ================= */}
+      <section className="relative overflow-hidden">
+
+        {/* Slide 1: Hero text content */}
+        <div className={`w-full transition-opacity duration-1000 ease-in-out ${currentSlide === 0 ? 'opacity-100 relative z-10' : 'opacity-0 absolute inset-0 z-0'}`}>
+          <div className="pt-32 pb-20 md:pt-48 md:pb-32 bg-green-900 text-white relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-green-950/90 to-green-900/50"></div>
+            <div className="container mx-auto px-4 md:px-8 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6 animate-fade-in-up">
+                <div className="inline-block bg-orange-500 text-white font-bold tracking-wider text-xs md:text-sm uppercase py-1.5 px-3 rounded shadow-md mb-2">
+                  ACADEMIC TUITIONS: All Classes | All Subjects | One Destination
+                </div>
+                <h1 className="text-4xl md:text-6xl font-serif font-bold leading-tight">
+                  Shaping Excellence. <br />
+                  <span className="text-orange-400">Building Future Leaders.</span>
+                </h1>
+                <p className="text-green-100 text-lg md:text-xl max-w-lg">
+                  Academic mastery, competitive exam success, and personality development under one structured system.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <button
+                    onClick={scrollToForm}
+                    className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3.5 rounded font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-2"
+                  >
+                    Enquire Now
+                  </button>
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border-2 border-green-400 hover:bg-green-400/20 text-white px-6 py-3.5 rounded font-semibold transition-all flex items-center justify-center gap-2"
+                  >
+                    <MessageCircle size={20} /> WhatsApp Us
+                  </a>
+                  <a
+                    href={PHONE_URL}
+                    className="border-2 border-green-400 hover:bg-green-400/20 text-white px-6 py-3.5 rounded font-semibold transition-all flex items-center justify-center gap-2"
+                  >
+                    <Phone size={20} /> Call Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Slide 2: Banner image */}
+        <div className={`w-full transition-opacity duration-1000 ease-in-out ${currentSlide === 1 ? 'opacity-100 relative z-10' : 'opacity-0 absolute inset-0 z-0'}`}>
+          <img
+            src="/z_banner.png"
+            alt="ZORBA Genius Academy"
+            className="w-full object-cover"
+            fetchPriority="low"
+            decoding="async"
+          />
+        </div>
+
+        {/* Dot navigation — visible on both slides */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {[0, 1].map((index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-3 rounded-full transition-all ${index === currentSlide ? 'bg-orange-500 w-6' : 'bg-white/50 w-3'}`}
+              aria-label={`Go to slide ${index + 1}`}
             />
-          </div>
-        ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-green-950/90 to-green-900/50 z-0"></div>
-
-        <div className="container mx-auto px-4 md:px-8 relative z-10 grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 animate-fade-in-up">
-            
-            <div className="inline-block bg-orange-500 text-white font-bold tracking-wider text-xs md:text-sm uppercase py-1.5 px-3 rounded shadow-md mb-2">
-              ACADEMIC TUITIONS: All Classes | All Subjects | One Destination
-            </div>
-
-            <h1 className="text-4xl md:text-6xl font-serif font-bold leading-tight">
-              Shaping Excellence. <br />
-              <span className="text-orange-400">Building Future Leaders.</span>
-            </h1>
-            <p className="text-green-100 text-lg md:text-xl max-w-lg">
-              Academic mastery, competitive exam success, and personality development under one structured system.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button 
-                onClick={scrollToForm}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3.5 rounded font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-2"
-              >
-                Enquire Now
-              </button>
-              <a 
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-2 border-green-400 hover:bg-green-400/20 text-white px-6 py-3.5 rounded font-semibold transition-all flex items-center justify-center gap-2"
-              >
-                <MessageCircle size={20} /> WhatsApp Us
-              </a>
-              <a 
-                href={PHONE_URL}
-                className="border-2 border-green-400 hover:bg-green-400/20 text-white px-6 py-3.5 rounded font-semibold transition-all flex items-center justify-center gap-2"
-              >
-                <Phone size={20} /> Call Now
-              </a>
-            </div>
-            
-            <div className="flex gap-2 pt-8">
-              {heroImages.map((_, index) => (
-                <button 
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${index === currentSlide ? 'bg-orange-500 w-6' : 'bg-green-300/50'}`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -954,17 +945,6 @@ const App = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* ================= BANNER ================= */}
-      <section className="w-full">
-        <img
-          src="/z_banner.png"
-          alt="ZORBA Genius Academy"
-          className="w-full object-cover"
-          loading="lazy"
-          decoding="async"
-        />
       </section>
 
       {/* ================= EXPERT FACULTY SECTION ================= */}
